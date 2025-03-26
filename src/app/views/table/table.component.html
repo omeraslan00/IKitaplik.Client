@@ -1,0 +1,53 @@
+  <div class="table-wrapper">
+      <!-- Tablo Başlığı ve Arama -->
+      <div class="table-header">
+          <h2>{{tableTitle}}</h2>
+          <div class="search-container">
+              <input 
+                  type="text" 
+                  placeholder="Ara..." 
+                  [(ngModel)]="searchText" 
+                  (input)="applyFilter()"
+              >
+              <label for="pageSize">Sayfa Başına:</label>
+              <select id="pageSize" class="page-size-selector" [(ngModel)]="itemsPerPage" (change)="updatePagination()">
+                  <option *ngFor="let size of [5, 10, 20]" [value]="size">{{ size }}</option>
+              </select>
+          </div>
+      </div>
+
+      <!-- Tablo -->
+      <div class="table-container">
+          <table>
+              <thead>
+                  <tr>
+                      <th *ngFor="let col of columns" (click)="sortTable(col)">
+                          {{ col }} <span>{{ getSortIcon(col) }}</span>
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let row of paginatedData">
+                      <td *ngFor="let col of columns">{{ row[col] }}</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+
+      <!-- Sayfalama Kontrolleri -->
+      <div class="table-footer">
+          <div class="pagination-info">
+              {{ (currentPage - 1) * itemsPerPage + 1 }} - 
+              {{ getMinValue(currentPage * itemsPerPage, filteredData.length) }} 
+              / {{ filteredData.length }} Sonuç
+          </div>
+          <div class="pagination-controls">
+              <button (click)="previousPage()" [disabled]="currentPage === 1">
+                  Önceki
+              </button>
+              <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= filteredData.length">
+                  Sonraki
+              </button>
+          </div>
+      </div>
+  </div>

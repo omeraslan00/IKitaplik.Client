@@ -3,10 +3,14 @@
   visible>
   <c-sidebar-header class="border-bottom">
     <c-sidebar-brand [routerLink]="[]">
-      <svg [class]="{icon: false}" cIcon class="sidebar-brand-full" height="32" name="logo" title="CoreUI Logo"></svg>
-      <svg cIcon class="sidebar-brand-narrow" height="32" name="signet" title="CoreUI Logo"></svg>
+      <!-- Büyük logo -->
+      <img src="assets/brand/logo.png" class="sidebar-brand-full" height="40" alt="My Logo">
+      
+      <!-- Küçük logo (Sidebar daraltıldığında gösterilecek) -->
+      <img src="assets/brand/logo.png" class="sidebar-brand-narrow" height="32" alt="My Logo">
     </c-sidebar-brand>
   </c-sidebar-header>
+  
 
   <ng-scrollbar pointerEventsMethod="scrollbar" visibility="hover">
     <c-sidebar-nav [navItems]="navItems" dropdownMode="close" compact />
