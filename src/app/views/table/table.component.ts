@@ -1,3 +1,4 @@
+
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -11,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 export class TableComponent {
   @Input() columns: string[] = [];
   @Input() data: any[] = [];
-  @Input() tableTitle : string = "";
+  @Input() tableTitle: string = "";
 
   filteredData: any[] = [];
   paginatedData: any[] = [];
@@ -70,13 +71,14 @@ export class TableComponent {
     this.updatePagination();
   }
 
-  getSortIcon(column: string): string {
+  getSortIconClass(column: string): string {
     if (this.sortColumn === column) {
-      if (this.sortOrder === 'asc') return '↑';
-      if (this.sortOrder === 'desc') return '↓';
+      if (this.sortOrder === 'asc') return 'fa-solid fa-sort-up';  // Yukarı ok ikonu
+      if (this.sortOrder === 'desc') return 'fa-solid fa-sort-down';  // Aşağı ok ikonu
     }
-    return '⬍';
+    return 'fa-solid fa-sort';  // Varsayılan yönlü ok ikonu
   }
+
 
   // Sayfalama İşlevleri
   updatePagination() {
@@ -100,5 +102,4 @@ export class TableComponent {
   getMinValue(value1: number, value2: number): number {
     return Math.min(value1, value2);
   }
-  
 }

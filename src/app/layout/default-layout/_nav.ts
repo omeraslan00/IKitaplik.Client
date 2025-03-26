@@ -38,7 +38,7 @@ export const navItems: INavData[] = [
     children: [
       {
         name: 'Kitaplar',
-        url: '/base/accordion',
+        url: '/books/kitaplar',
         icon: 'nav-icon-bullet'
       },
       {
@@ -103,8 +103,8 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Takip & Raporlama',
-    url: '/students',
-    iconComponent: { name: 'cil-grid' },
+    url: '/follow-report',
+    iconComponent: { name: 'cil-chart-pie' },
     children: [
       {
         name: 'İstatistikler',
@@ -117,5 +117,27 @@ export const navItems: INavData[] = [
         icon: 'nav-icon-bullet'
       }
     ]
-  }
+  },
+  {
+    name: 'Emanet İşlemleri',
+    url: '/luggage-locker',
+    iconComponent: { name: 'cil-grid' },
+    children: [
+      {
+        name: 'Emanet Al',
+        url: '/buttons/buttons',
+        icon: 'nav-icon-bullet'
+      },
+      {
+        name: 'Emanet Ver',
+        url: '/buttons/buttons',
+        icon: 'nav-icon-bullet'
+      },
+    ]
+  },
+  {
+    name: 'Bağış İşlemleri',
+    iconComponent: { name: 'cil-chart' },
+    url: '/charts'
+  },
 ];

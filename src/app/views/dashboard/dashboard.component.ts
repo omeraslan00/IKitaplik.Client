@@ -25,7 +25,6 @@ import { IconDirective } from '@coreui/icons-angular';
 import { WidgetsBrandComponent } from '../widgets/widgets-brand/widgets-brand.component';
 import { WidgetsDropdownComponent } from '../widgets/widgets-dropdown/widgets-dropdown.component';
 import { DashboardChartsData, IChartProps } from './dashboard-charts-data';
-import { TableComponent } from '../table/table.component';
 
 interface IUser {
   name: string;
@@ -44,7 +43,7 @@ interface IUser {
 @Component({
     templateUrl: 'dashboard.component.html',
     styleUrls: ['dashboard.component.scss'],
-    imports: [WidgetsDropdownComponent, TextColorDirective, CardComponent, CardBodyComponent, RowComponent, ColComponent, ButtonDirective, IconDirective, ReactiveFormsModule, ButtonGroupComponent, FormCheckLabelDirective, ChartjsComponent, NgStyle, CardFooterComponent, GutterDirective, ProgressBarDirective, ProgressComponent, WidgetsBrandComponent, CardHeaderComponent, TableDirective, AvatarComponent,TableComponent]
+    imports: [WidgetsDropdownComponent, TextColorDirective, CardComponent, CardBodyComponent, RowComponent, ColComponent, ButtonDirective, IconDirective, ReactiveFormsModule, ButtonGroupComponent, FormCheckLabelDirective, ChartjsComponent, NgStyle, CardFooterComponent, GutterDirective, ProgressBarDirective, ProgressComponent, WidgetsBrandComponent, CardHeaderComponent, TableDirective, AvatarComponent]
 })
 export class DashboardComponent implements OnInit {
 
@@ -52,22 +51,6 @@ export class DashboardComponent implements OnInit {
   readonly #document: Document = inject(DOCUMENT);
   readonly #renderer: Renderer2 = inject(Renderer2);
   readonly #chartsData: DashboardChartsData = inject(DashboardChartsData);
-
-  tableColumns = ["Kitap Adı", "Yazar", "Kategori", "Yıl"];
-  title = "Kitaplar";
-  tableData = [
-    { "Kitap Adı": "Simyacı", "Yazar": "Paulo Coelho", "Kategori": "Roman", "Yıl": 1988 },
-    { "Kitap Adı": "1984", "Yazar": "George Orwell", "Kategori": "Distopya", "Yıl": 1949 },
-    { "Kitap Adı": "Simyacı", "Yazar": "Paulo Coelho", "Kategori": "Roman", "Yıl": 1988 },
-    { "Kitap Adı": "1984", "Yazar": "George Orwell", "Kategori": "Distopya", "Yıl": 1949 },
-    { "Kitap Adı": "Simyacı", "Yazar": "Paulo Coelho", "Kategori": "Roman", "Yıl": 1988 },
-    { "Kitap Adı": "1984", "Yazar": "George Orwell", "Kategori": "Distopya", "Yıl": 1949 },
-    { "Kitap Adı": "Simyacı", "Yazar": "Paulo Coelho", "Kategori": "Roman", "Yıl": 1988 },
-    { "Kitap Adı": "1984", "Yazar": "George Orwell", "Kategori": "Distopya", "Yıl": 1949 },
-    { "Kitap Adı": "Simyacı", "Yazar": "Paulo Coelho", "Kategori": "Roman", "Yıl": 1988 },
-    { "Kitap Adı": "1984", "Yazar": "George Orwell", "Kategori": "Distopya", "Yıl": 1949 },
-    { "Kitap Adı": "Kürk Mantolu Madonna", "Yazar": "Sabahattin Ali", "Kategori": "Klasik", "Yıl": 1943 }
-  ];
 
   public users: IUser[] = [
     {

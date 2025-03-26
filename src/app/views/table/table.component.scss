@@ -91,11 +91,12 @@ thead tr {
 th {
   padding: 0.875rem 1rem;
   text-align: left;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: rgb(17, 24, 39);
+  font-size: 0.900rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
   cursor: pointer;
   transition: background-color 0.3s;
+  user-select: none;
 }
 
 th:hover {
@@ -122,12 +123,12 @@ th span {
 td {
   padding: 1rem;
   font-size: 0.875rem;
-  color: rgb(107, 114, 128);
+  color: rgb(0, 0, 0);
   border-bottom: 1px solid rgb(229, 231, 235);
 }
 
 td:first-child {
-  color: rgb(17, 24, 39);
+  color: rgb(0, 0, 0);
 }
 
 /* Hover Efekti */
