@@ -4,10 +4,6 @@
         <h2>{{tableTitle}}</h2>
         <div class="search-container">
             <input type="text" placeholder="Ara..." [(ngModel)]="searchText" (input)="applyFilter()">
-            <label for="pageSize">Sayfa Başına:</label>
-            <select id="pageSize" class="page-size-selector" [(ngModel)]="itemsPerPage" (change)="updatePagination()">
-                <option *ngFor="let size of [5, 10, 20]" [value]="size">{{ size }}</option>
-            </select>
         </div>
     </div>
 
@@ -16,6 +12,7 @@
         <table>
             <thead>
                 <tr>
+                    <th><input type="checkbox" name="" id=""></th>
                     <th *ngFor="let col of columns" (click)="sortTable(col)">
                         {{ col }}
                         <span>
@@ -28,6 +25,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let row of paginatedData">
+                    <td><input type="checkbox" (click)="checkbox(row)"/></td>
                     <td *ngFor="let col of columns">{{ row[col] }}</td>
                 </tr>
             </tbody>

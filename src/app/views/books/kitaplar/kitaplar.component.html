@@ -1,1 +1,56 @@
-<app-table [columns]="tableColumns" [data]="tableData" [tableTitle]="title"></app-table>
+<div class="mt-4">
+  <button class="btn btn-primary me-2 mb-3 text-white" (click)="openModal('add')">Ekle</button>
+  <button class="btn btn-warning me-2 mb-3 text-white" (click)="openModal('update')">Güncelle</button>
+  <button class="btn btn-danger mb-3 text-white" (click)="openModal('delete')">Sil</button>
+</div>
+
+<div *ngIf="isModalOpen || isClosing" 
+     class="custom-modal-backdrop" 
+     [ngClass]="{ 'fade-in': isModalOpen && !isClosing, 'fade-out': isClosing }">
+  
+  <div class="custom-modal" [ngClass]="{ 'fade-out': isClosing }">
+    <div class="custom-modal-header">
+      <h5 class="modal-title" id="modalLabel">{{ modalTitle }}</h5>
+      <button type="button" class="btn-close" (click)="closeModal()"></button>
+    </div>
+
+    <div class="custom-modal-body" *ngIf="modalAction !== 'delete'">
+      <form [formGroup]="kitapForm" class="styled-form">
+        <div class="mb-3">
+          <label for="kitapAdi" class="form-label">Kitap Adı</label>
+          <input id="kitapAdi" type="text" class="form-control" formControlName="kitapAdi" />
+        </div>
+    
+        <div class="mb-3">
+          <label for="yazar" class="form-label">Yazar</label>
+          <input id="yazar" type="text" class="form-control" formControlName="yazar" />
+        </div>
+    
+        <div class="mb-3">
+          <label for="kategori" class="form-label">Kategori</label>
+          <input id="kategori" type="text" class="form-control" formControlName="kategori" />
+        </div>
+    
+        <div class="mb-3">
+          <label for="yil" class="form-label">Yıl</label>
+          <input id="yil" type="number" class="form-control" formControlName="yil" />
+        </div>
+      </form>
+    </div>
+
+    <!-- Silme işlemi için uyarı mesajı -->
+    <div *ngIf="modalAction === 'delete'" class="custom-modal-body">
+      <p>Bu kitap silinecek. Emin misiniz?</p>
+    </div>
+
+    <div class="custom-modal-footer">
+      <button type="button" class="cancel-btn btn btn-secondary" (click)="closeModal()">İptal</button>
+      <button type="button" class="delete-btn btn btn-danger text-white" 
+              (click)="modalAction === 'add' ? addKitap() : modalAction === 'update' ? updateKitap() : confirmDelete()">
+        {{ modalAction === 'add' ? 'Ekle' : modalAction === 'update' ? 'Güncelle' : 'Sil' }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<app-table [columns]="tableColumns" [data]="kitaplar" [tableTitle]="title"></app-table>

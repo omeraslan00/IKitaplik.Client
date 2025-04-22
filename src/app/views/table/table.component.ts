@@ -1,4 +1,3 @@
-
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -19,10 +18,11 @@ export class TableComponent {
   searchText: string = "";
   sortColumn: string = "";
   sortOrder: 'asc' | 'desc' | null = null;
+  selectedRows: Set<any> = new Set(); // Seçilen satırlar bir Set içinde tutuluyor
 
   // Sayfalama için değişkenler
   currentPage: number = 1;
-  itemsPerPage: number = 5;
+  itemsPerPage: number = 10; // Buradaki değeri 10 yaptık
 
   constructor() {
     this.filteredData = [...this.data];
@@ -79,7 +79,6 @@ export class TableComponent {
     return 'fa-solid fa-sort';  // Varsayılan yönlü ok ikonu
   }
 
-
   // Sayfalama İşlevleri
   updatePagination() {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
@@ -99,7 +98,11 @@ export class TableComponent {
       this.updatePagination();
     }
   }
+
   getMinValue(value1: number, value2: number): number {
     return Math.min(value1, value2);
+  }
+  checkbox(e:any){
+    console.log(e.id);
   }
 }

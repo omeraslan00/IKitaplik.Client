@@ -42,21 +42,6 @@ export const navItems: INavData[] = [
         icon: 'nav-icon-bullet'
       },
       {
-        name: 'Kitap Ekle',
-        url: '/base/accordion',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Kitap Düzenle',
-        url: '/base/breadcrumbs',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Kitap Sil',
-        url: '/base/cards',
-        icon: 'nav-icon-bullet'
-      },
-      {
         name: 'Kategoriler',
         url: '/base/cards',
         icon: 'nav-icon-bullet'
